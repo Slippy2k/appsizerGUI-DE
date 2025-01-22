@@ -29,6 +29,7 @@ namespace appsizerGUI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(appsizerGUI));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuWindowSelect = new System.Windows.Forms.ToolStripMenuItem();
             this.dummyWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,6 +38,7 @@ namespace appsizerGUI
             this.menuSaveDesktopNewProfile = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRestoreDesktop = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDesktopProfileManage = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuOptions = new System.Windows.Forms.ToolStripMenuItem();
             this.useAboveTaskbar = new System.Windows.Forms.ToolStripMenuItem();
             this.menuWindowBorderSelect = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,7 +71,6 @@ namespace appsizerGUI
             this.windowToolsStyleSeparatorEnd = new System.Windows.Forms.ToolStripSeparator();
             this.windowToolsBorder = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.windowHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowWidth)).BeginInit();
@@ -97,15 +98,15 @@ namespace appsizerGUI
             this.menuWindowSelect.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dummyWindowToolStripMenuItem});
             this.menuWindowSelect.Name = "menuWindowSelect";
-            this.menuWindowSelect.Size = new System.Drawing.Size(95, 20);
-            this.menuWindowSelect.Text = "&Select window";
+            this.menuWindowSelect.Size = new System.Drawing.Size(116, 20);
+            this.menuWindowSelect.Text = "&Fenster auswählen";
             this.menuWindowSelect.DropDownOpening += new System.EventHandler(this.ListWindows);
             // 
             // dummyWindowToolStripMenuItem
             // 
             this.dummyWindowToolStripMenuItem.Name = "dummyWindowToolStripMenuItem";
-            this.dummyWindowToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.dummyWindowToolStripMenuItem.Text = "Dummy window";
+            this.dummyWindowToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.dummyWindowToolStripMenuItem.Text = "Dummy Fenster";
             // 
             // toolStripMenuItem1
             // 
@@ -124,27 +125,34 @@ namespace appsizerGUI
             this.menuSaveDesktop.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuSaveDesktopNewProfile});
             this.menuSaveDesktop.Name = "menuSaveDesktop";
-            this.menuSaveDesktop.Size = new System.Drawing.Size(238, 22);
-            this.menuSaveDesktop.Text = "Save all open window as";
+            this.menuSaveDesktop.Size = new System.Drawing.Size(292, 22);
+            this.menuSaveDesktop.Text = "Alle geöffneten Fenster speichern als";
             // 
             // menuSaveDesktopNewProfile
             // 
             this.menuSaveDesktopNewProfile.Name = "menuSaveDesktopNewProfile";
-            this.menuSaveDesktopNewProfile.Size = new System.Drawing.Size(157, 22);
-            this.menuSaveDesktopNewProfile.Text = "< New profile >";
+            this.menuSaveDesktopNewProfile.Size = new System.Drawing.Size(160, 22);
+            this.menuSaveDesktopNewProfile.Text = "< Neues Profil >";
             this.menuSaveDesktopNewProfile.Click += new System.EventHandler(this.OnAddDesktopProfileClick);
             // 
             // menuRestoreDesktop
             // 
             this.menuRestoreDesktop.Name = "menuRestoreDesktop";
-            this.menuRestoreDesktop.Size = new System.Drawing.Size(238, 22);
-            this.menuRestoreDesktop.Text = "Restore window positions from";
+            this.menuRestoreDesktop.Size = new System.Drawing.Size(292, 22);
+            this.menuRestoreDesktop.Text = "Fensterpositionen wiederherstellen von";
             // 
             // menuDesktopProfileManage
             // 
             this.menuDesktopProfileManage.Name = "menuDesktopProfileManage";
-            this.menuDesktopProfileManage.Size = new System.Drawing.Size(238, 22);
-            this.menuDesktopProfileManage.Text = "Manage profiles";
+            this.menuDesktopProfileManage.Size = new System.Drawing.Size(292, 22);
+            this.menuDesktopProfileManage.Text = "Profile verwalten";
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(292, 22);
+            this.toolStripMenuItem5.Text = "Alle minimierten Fenster wiederherstellen";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.OnShowAllMinimizedWindowsClick);
             // 
             // menuOptions
             // 
@@ -152,8 +160,8 @@ namespace appsizerGUI
             this.useAboveTaskbar,
             this.menuWindowBorderSelect});
             this.menuOptions.Name = "menuOptions";
-            this.menuOptions.Size = new System.Drawing.Size(61, 20);
-            this.menuOptions.Text = "&Options";
+            this.menuOptions.Size = new System.Drawing.Size(69, 20);
+            this.menuOptions.Text = "&Optionen";
             // 
             // useAboveTaskbar
             // 
@@ -161,14 +169,14 @@ namespace appsizerGUI
             this.useAboveTaskbar.CheckOnClick = true;
             this.useAboveTaskbar.CheckState = System.Windows.Forms.CheckState.Checked;
             this.useAboveTaskbar.Name = "useAboveTaskbar";
-            this.useAboveTaskbar.Size = new System.Drawing.Size(262, 22);
-            this.useAboveTaskbar.Text = "Put centered window above taskbar";
+            this.useAboveTaskbar.Size = new System.Drawing.Size(297, 22);
+            this.useAboveTaskbar.Text = "Fenster über der Taskleiste zentrieren";
             // 
             // menuWindowBorderSelect
             // 
             this.menuWindowBorderSelect.Name = "menuWindowBorderSelect";
-            this.menuWindowBorderSelect.Size = new System.Drawing.Size(262, 22);
-            this.menuWindowBorderSelect.Text = "Window border calculation method";
+            this.menuWindowBorderSelect.Size = new System.Drawing.Size(297, 22);
+            this.menuWindowBorderSelect.Text = "Berechnungsmethode für den Fensterrand";
             // 
             // savedWindowSelector
             // 
@@ -179,7 +187,7 @@ namespace appsizerGUI
             this.savedWindowSelector.Name = "savedWindowSelector";
             this.savedWindowSelector.Size = new System.Drawing.Size(254, 21);
             this.savedWindowSelector.TabIndex = 0;
-            this.savedWindowSelector.Text = "Select a window...";
+            this.savedWindowSelector.Text = "Ein Fenster auswählen...";
             this.savedWindowSelector.DropDown += new System.EventHandler(this.ListSavedWindows);
             this.savedWindowSelector.SelectedIndexChanged += new System.EventHandler(this.LoadSavedWindow);
             // 
@@ -204,20 +212,20 @@ namespace appsizerGUI
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(233, 90);
+            this.label6.Location = new System.Drawing.Point(241, 90);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 13);
+            this.label6.Size = new System.Drawing.Size(42, 13);
             this.label6.TabIndex = 24;
-            this.label6.Text = "Bottom:";
+            this.label6.Text = "Unten:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(241, 64);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 23;
-            this.label5.Text = "Right:";
+            this.label5.Text = "Rechts:";
             // 
             // windowHeight
             // 
@@ -240,11 +248,11 @@ namespace appsizerGUI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(116, 90);
+            this.label3.Location = new System.Drawing.Point(119, 90);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 21;
-            this.label3.Text = "Height:";
+            this.label3.Text = "Höhe:";
             // 
             // windowWidth
             // 
@@ -269,9 +277,9 @@ namespace appsizerGUI
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(119, 64);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 19;
-            this.label4.Text = "Width:";
+            this.label4.Text = "Breite:";
             // 
             // windowY
             // 
@@ -330,11 +338,11 @@ namespace appsizerGUI
             // btnRefresh
             // 
             this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRefresh.Location = new System.Drawing.Point(11, 117);
+            this.btnRefresh.Location = new System.Drawing.Point(12, 117);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(60, 23);
+            this.btnRefresh.Size = new System.Drawing.Size(83, 23);
             this.btnRefresh.TabIndex = 8;
-            this.btnRefresh.Text = "&Refresh";
+            this.btnRefresh.Text = "&Aktualisieren";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.OnRefreshClicked);
             // 
@@ -342,7 +350,7 @@ namespace appsizerGUI
             // 
             this.btnWindowTools.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnWindowTools.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnWindowTools.Location = new System.Drawing.Point(192, 117);
+            this.btnWindowTools.Location = new System.Drawing.Point(163, 117);
             this.btnWindowTools.Name = "btnWindowTools";
             this.btnWindowTools.Size = new System.Drawing.Size(60, 23);
             this.btnWindowTools.TabIndex = 9;
@@ -353,11 +361,11 @@ namespace appsizerGUI
             // btnApply
             // 
             this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApply.Location = new System.Drawing.Point(258, 117);
+            this.btnApply.Location = new System.Drawing.Point(244, 117);
             this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(60, 23);
+            this.btnApply.Size = new System.Drawing.Size(74, 23);
             this.btnApply.TabIndex = 10;
-            this.btnApply.Text = "&Apply";
+            this.btnApply.Text = "&Anwenden";
             this.btnApply.UseVisualStyleBackColor = true;
             this.btnApply.Click += new System.EventHandler(this.OnSetPosition);
             // 
@@ -397,8 +405,8 @@ namespace appsizerGUI
             // statusLabel
             // 
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(39, 17);
-            this.statusLabel.Text = "Ready";
+            this.statusLabel.Size = new System.Drawing.Size(37, 17);
+            this.statusLabel.Text = "Bereit";
             // 
             // windowToolsMenu
             // 
@@ -411,65 +419,58 @@ namespace appsizerGUI
             this.windowToolsStyleSeparatorEnd,
             this.windowToolsBorder});
             this.windowToolsMenu.Name = "windowToolsMenu";
-            this.windowToolsMenu.Size = new System.Drawing.Size(183, 126);
+            this.windowToolsMenu.Size = new System.Drawing.Size(205, 126);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(182, 22);
-            this.toolStripMenuItem3.Text = "Put to center";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(204, 22);
+            this.toolStripMenuItem3.Text = "In die Mitte stellen";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.OnCenterClicked);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(182, 22);
-            this.toolStripMenuItem4.Text = "Borderless fullscreen";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(204, 22);
+            this.toolStripMenuItem4.Text = "Randloser Vollbildschirm";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.OnBorderlessClicked);
             // 
             // windowToolsAlwaysOnTop
             // 
             this.windowToolsAlwaysOnTop.CheckOnClick = true;
             this.windowToolsAlwaysOnTop.Name = "windowToolsAlwaysOnTop";
-            this.windowToolsAlwaysOnTop.Size = new System.Drawing.Size(182, 22);
-            this.windowToolsAlwaysOnTop.Text = "Always on top";
+            this.windowToolsAlwaysOnTop.Size = new System.Drawing.Size(204, 22);
+            this.windowToolsAlwaysOnTop.Text = "Immer oben";
             this.windowToolsAlwaysOnTop.Click += new System.EventHandler(this.OnAlwaysOnTopClicked);
             // 
             // windowToolsShowWindow
             // 
             this.windowToolsShowWindow.Name = "windowToolsShowWindow";
-            this.windowToolsShowWindow.Size = new System.Drawing.Size(182, 22);
-            this.windowToolsShowWindow.Text = "ShowWindow";
+            this.windowToolsShowWindow.Size = new System.Drawing.Size(204, 22);
+            this.windowToolsShowWindow.Text = "Fenster anzeigen";
             // 
             // windowToolsStyleSeparatorStart
             // 
             this.windowToolsStyleSeparatorStart.Name = "windowToolsStyleSeparatorStart";
-            this.windowToolsStyleSeparatorStart.Size = new System.Drawing.Size(179, 6);
+            this.windowToolsStyleSeparatorStart.Size = new System.Drawing.Size(201, 6);
             // 
             // windowToolsStyleSeparatorEnd
             // 
             this.windowToolsStyleSeparatorEnd.Name = "windowToolsStyleSeparatorEnd";
-            this.windowToolsStyleSeparatorEnd.Size = new System.Drawing.Size(179, 6);
+            this.windowToolsStyleSeparatorEnd.Size = new System.Drawing.Size(201, 6);
             // 
             // windowToolsBorder
             // 
             this.windowToolsBorder.Enabled = false;
             this.windowToolsBorder.Name = "windowToolsBorder";
-            this.windowToolsBorder.Size = new System.Drawing.Size(182, 22);
-            this.windowToolsBorder.Text = "Border: (-, -, -, -)";
+            this.windowToolsBorder.Size = new System.Drawing.Size(204, 22);
+            this.windowToolsBorder.Text = "Rand: (-, -, -, -)";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(32, 19);
             this.toolStripMenuItem2.Text = "toolStripMenuItem2";
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(238, 22);
-            this.toolStripMenuItem5.Text = "Restore all minimized windows";
-            this.toolStripMenuItem5.Click += new System.EventHandler(this.OnShowAllMinimizedWindowsClick);
             // 
             // appsizerGUI
             // 
@@ -498,6 +499,7 @@ namespace appsizerGUI
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;

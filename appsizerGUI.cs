@@ -26,13 +26,13 @@ namespace appsizerGUI
                 switch (method)
                 {
                     case BorderCalibrationMethod.Native:
-                        text += " (usually 8px, Windows 8.1 or earlier)";
+                        text += " (normalerweise 8px, Windows 8.1 oder früher)";
                         break;
-                    case BorderCalibrationMethod.Calibrated:
+                    case BorderCalibrationMethod.Kalibriert:
                         text += " (1px, Windows 10/11)";
                         break;
                     case BorderCalibrationMethod.ClientArea:
-                        text = "Client area (exclude the border completely)";
+                        text = "Klient Bereich (die Grenze vollständig ausschließen)";
                         break;
                 }
 
@@ -132,7 +132,7 @@ namespace appsizerGUI
 
             statusLabel.Text = currentWindow.IsValid
                 ? $"{currentWindow.ProcessName} ({currentWindow.Pid}) - {currentWindow.Class} (0x{currentWindow.Handle.ToInt64():X})"
-                : "Window not found!";
+                : "Fenster nicht gefunden!";
 
             UpdateWindowControlsEnabledStatus();
 
@@ -155,7 +155,7 @@ namespace appsizerGUI
             else
             {
                 uiUpdateHandlerEnabled = false;
-                statusLabel.Text = "Please select a window first!";
+                statusLabel.Text = "Bitte wähle zuerst ein Fenster aus!";
             }
         }
 
@@ -163,11 +163,11 @@ namespace appsizerGUI
         {
             if (updateResult.newTotal == updateResult.updated)
             {
-                statusLabel.Text = $"Saved {updateResult.newTotal} windows to \"{name}\"";
+                statusLabel.Text = $"Gespeicherte {updateResult.newTotal} Fenster in \"{name}\"";
             }
             else
             {
-                statusLabel.Text = $"Updated {updateResult.updated} windows in \"{name}\", new total: {updateResult.newTotal}";
+                statusLabel.Text = $"Aktualisierte {updateResult.updated} Fenster in \"{name}\", neue Anzahl: {updateResult.newTotal}";
             }
         }
 
@@ -242,20 +242,20 @@ namespace appsizerGUI
                 menuItemLoad.Click += delegate
                 {
                     var (windowCount, successCount) = RestoreDesktop(desktop.Name);
-                    statusLabel.Text = $"Restored {successCount}/{windowCount} windows from \"{desktop.Name}\"";
+                    statusLabel.Text = $"Wiederhergestellte {successCount}/{windowCount} Fenster von \"{desktop.Name}\"";
                 };
                 menuRestoreDesktop.DropDownItems.Add(menuItemLoad);
 
                 var menuItemManage = new ToolStripMenuItem(desktop.Name);
 
-                var menuItemManageRename = new ToolStripMenuItem("Rename");
+                var menuItemManageRename = new ToolStripMenuItem("Umbenennen");
                 menuItemManageRename.Click += delegate { new DesktopProfileRenameDialog(desktop.Name).ShowDialog(this); };
 
-                var menuItemManageDelete = new ToolStripMenuItem("Delete");
+                var menuItemManageDelete = new ToolStripMenuItem("Löschen");
                 menuItemManageDelete.Click += delegate
                 {
                     DeleteDesktop(desktop.Name);
-                    statusLabel.Text = $"Profile \"{desktop.Name}\" deleted";
+                    statusLabel.Text = $"Profil \"{desktop.Name}\" gelöscht";
                 };
 
                 menuItemManage.DropDownItems.AddRange(new[] {
@@ -273,7 +273,7 @@ namespace appsizerGUI
 
         private void OnShowAllMinimizedWindowsClick(object sender, EventArgs e)
         {
-            statusLabel.Text = $"Restored {ShowAllMinimizedWindows()} minimized windows";
+            statusLabel.Text = $"Wiederhergestellte {ShowAllMinimizedWindows()} minimierte Fenster";
         }
 
         private void OnWindowToolsClick(object sender, EventArgs e)
@@ -304,7 +304,7 @@ namespace appsizerGUI
             AddWindowStylesToWindowTools(windowStyle);
             AddWindowStylesToWindowTools(windowExStyle);
 
-            windowToolsBorder.Text = $"Border: ({currentWindow.Border.Left}, {currentWindow.Border.Top}, {currentWindow.Border.Right}, {currentWindow.Border.Bottom})";
+            windowToolsBorder.Text = $"Rand: ({currentWindow.Border.Left}, {currentWindow.Border.Top}, {currentWindow.Border.Right}, {currentWindow.Border.Bottom})";
 
             windowToolsMenu.Show(btnWindowTools, new Point(btnWindowTools.Width, btnWindowTools.Height), ToolStripDropDownDirection.Left);
         }
@@ -353,13 +353,13 @@ namespace appsizerGUI
         {
             public DesktopProfileAddDialog()
             {
-                Text = "New profile";
-                InputLabel.Text = "Profile name:";
+                Text = "Neues Profil";
+                InputLabel.Text = "Profil Name:";
 
                 int i = 0;
                 do
                 {
-                    Input.Text = $"Profile {++i:D2}";
+                    Input.Text = $"Profil {++i:D2}";
                 }
                 while (config.DesktopProfiles.Any(x => x.Name == Input.Text));
             }
@@ -386,8 +386,8 @@ namespace appsizerGUI
 
             public DesktopProfileRenameDialog(string profileName)
             {
-                Text = "Rename profile";
-                InputLabel.Text = "Profile name:";
+                Text = "Profil umbenennen";
+                InputLabel.Text = "Profil Name:";
                 Input.Text = profileName;
                 this.profileName = profileName;
             }
@@ -400,7 +400,7 @@ namespace appsizerGUI
 
                 try
                 {
-                    ((appsizerGUI)Owner).statusLabel.Text = $"Profile \"{profileName}\" renamed to \"{Input.Text}\"";
+                    ((appsizerGUI)Owner).statusLabel.Text = $"Profil \"{profileName}\" umbenannt in \"{Input.Text}\"";
                 }
                 catch { }
 

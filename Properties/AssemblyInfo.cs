@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("appsizerGUI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("浩劫者12345")]
+[assembly: AssemblyCompany("haojiezhe12345@GitHub")]
 [assembly: AssemblyProduct("appsizerGUI")]
-[assembly: AssemblyCopyright("haojiezhe12345@GitHub")]
+[assembly: AssemblyCopyright("Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

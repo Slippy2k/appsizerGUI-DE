@@ -23,12 +23,12 @@ namespace appsizerGUI
         public static Config config = Config.Load();
         public static Window currentWindow;
 
-        public static BorderCalibrationMethod borderCalibrationMethod = BorderCalibrationMethod.Calibrated;
+        public static BorderCalibrationMethod borderCalibrationMethod = BorderCalibrationMethod.Kalibriert;
 
         public enum BorderCalibrationMethod
         {
             Native,
-            Calibrated,
+            Kalibriert,
             ClientArea
         }
 
